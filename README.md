@@ -8,7 +8,9 @@ A simple and responsive webpage that displays real-time tweets from NMIXX Offici
 - 🌙 **Dark Mode** – Toggle between light and dark mode with smooth transitions.
 - 🎨 **Responsive Design** – Optimized for both desktop and mobile.
 - ⏳ **Delayed Twitter Widget Load** – Improves page speed by loading the Twitter widget after the page is rendered.
-- 🛠️ **Custom Styling** – Clean UI with smooth animations and a professional layout.### 📸 Preview
+- 🛠️ **Custom Styling** – Clean UI with smooth animations and a professional layout.
+
+### 📸 Preview
 Desktop View
 ![Preview](https://github.com/user-attachments/assets/0e509121-bddf-4d01-ae4b-9d9a6088bc48)
 ![Preview](https://github.com/user-attachments/assets/c4058759-8add-48b9-a5a6-11d0f1bcfa98)
