@@ -5,96 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NMIXX Twitter Feed</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="https://platform.twitter.com/widgets.js" as="script">
+    <script defer src="https://platform.twitter.com/widgets.js"></script>
 </head>
 <body>
 
-    <!-- Centered Title -->
     <div style="text-align: center; margin-top: 20px;">
         <h1>NMIXX Twitter Feed</h1>
     </div>
 
-    <!-- Toggle Button -->
     <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
     <div class="container">
-    
-        <!-- Left Column: NMIXX Official -->
         <div class="column">
             <h1>NMIXX Official Tweets</h1>
             <a class="twitter-timeline"
-               id="nmixxFeed"
                href="https://twitter.com/NMIXX_official"
                data-theme="light"
                data-width="100%"
-               data-height="750">
-            </a>
+               data-height="750"
+               data-tweet-limit="5"></a>
         </div>
-    
-        <!-- Right Column: WE_NMIXX -->
+
         <div class="column">
             <h1>WE_NMIXX Tweets</h1>
             <a class="twitter-timeline"
-               id="wenmixxFeed"
                href="https://twitter.com/WE_NMIXX"
                data-theme="light"
                data-width="100%"
-               data-height="750"></a>
-            </a>
+               data-height="750"
+               data-tweet-limit="5"></a>
         </div>
     </div>
-    
-    <!-- GitHub Logo at the Bottom -->
-     <!-- GitHub Logo at the Bottom -->
+
     <div class="github">
-        <a href="https://github.com/your-github-profile" target="_blank">
+        <a href="https://github.com/Nathaniel1024" target="_blank">
             <img id="github-logo" src="github-mark.svg" alt="GitHub Logo" width="50" height="50">
         </a>
     </div>
-    
-    <!-- Load Twitter Widget Script After Page Load -->
+
     <script>
-        window.onload = function () {
-            // Delay Twitter script loading to improve page speed
-            setTimeout(() => {
-                let twitterScript = document.createElement("script");
-                twitterScript.src = "https://platform.twitter.com/widgets.js";
-                twitterScript.async = true;
-                twitterScript.charset = "utf-8";
-                document.body.appendChild(twitterScript);
-            }, 500); // 0.5s delay for better perceived performance
-    
-            // Load Dark Mode preference
-            const isDarkMode = localStorage.getItem("darkMode") === "true";
-            if (isDarkMode) {
-                document.body.classList.add("dark-mode");
-                document.querySelector(".toggle-btn").textContent = "☀️ Light Mode";
-                document.getElementById("nmixxFeed").setAttribute("data-theme", "dark");
-                document.getElementById("wenmixxFeed").setAttribute("data-theme", "dark");
-            }
-        };
-    
         function toggleDarkMode() {
             const body = document.body;
             const btn = document.querySelector(".toggle-btn");
             const isDarkMode = body.classList.toggle("dark-mode");
             localStorage.setItem("darkMode", isDarkMode);
-    
+
             btn.textContent = isDarkMode ? "☀️ Light Mode" : "🌙 Dark Mode";
-    
-            const nmixxFeed = document.getElementById("nmixxFeed");
-            const wenmixxFeed = document.getElementById("wenmixxFeed");
-    
-            // Update Twitter feed theme only if changed
-            const newTheme = isDarkMode ? "dark" : "light";
-            if (nmixxFeed.getAttribute("data-theme") !== newTheme) {
-                nmixxFeed.setAttribute("data-theme", newTheme);
-                wenmixxFeed.setAttribute("data-theme", newTheme);
-    
-                // Reload Twitter widgets to apply new theme
-                if (window.twttr) twttr.widgets.load();
-            }
+
+            const feeds = document.querySelectorAll(".twitter-timeline");
+            feeds.forEach(feed => feed.setAttribute("data-theme", isDarkMode ? "dark" : "light"));
+
+            if (window.twttr) twttr.widgets.load();
         }
     </script>
-    
+
 </body>
 </html>
