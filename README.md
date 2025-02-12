@@ -10,10 +10,14 @@ A simple and responsive webpage that displays real-time tweets from NMIXX Offici
 - ⏳ **Delayed Twitter Widget Load** – Improves page speed by loading the Twitter widget after the page is rendered.
 - 🛠️ **Custom Styling** – Clean UI with smooth animations and a professional layout.
 
+
 ### 📸 Preview
+
 Desktop View
 ![Preview](https://github.com/user-attachments/assets/0e509121-bddf-4d01-ae4b-9d9a6088bc48)
 ![Preview](https://github.com/user-attachments/assets/c4058759-8add-48b9-a5a6-11d0f1bcfa98)
+
+
 #### 🛠️Installation
 
 1. **Clone the repository**
